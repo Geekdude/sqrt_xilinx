@@ -1,6 +1,8 @@
 #include <chrono>
 #include "sqrt.hpp"
 
+#define X_VALUE 25.0f
+
 SQRT::SQRT(CV_OpenCL &opencl, int array_size) : cv_opencl(opencl)
 {
     this->array_size = array_size;
@@ -10,7 +12,7 @@ SQRT::SQRT(CV_OpenCL &opencl, int array_size) : cv_opencl(opencl)
 
     for (int i = 0; i < array_size; i++)
     {
-        x_host[i] = 25;
+        x_host[i] = X_VALUE;
     }
 
     x_device = alloc<float>(cv_opencl, array_size, x_host);
@@ -40,6 +42,8 @@ SQRT::SQRT(CV_OpenCL &opencl, int array_size) : cv_opencl(opencl)
       std::ofstream file("duration.txt");
       file << "Computation Duration: " << time_delta.count() << " s" << std::endl;
     }
+
+    std::cout << "Result: sqrt(" << X_VALUE << ") = " << x_host[0] << std::endl;
 
     // Save Results to file
     std::cout << "Saving solution..." << std::endl;

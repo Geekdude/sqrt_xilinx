@@ -115,7 +115,6 @@ int main(int argc, char** argv)
     // All of this handled by the sqrt class.
     SQRT sqrt {cv_cl, atoi(argv[1])};
 
-    cout << "Yay Success!" << endl;
     return 0;
 }
 
