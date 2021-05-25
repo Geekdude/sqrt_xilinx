@@ -21,7 +21,7 @@ sqrt: $(src_files) $(hpp_files)
 	-lpthread -lrt -lstdc++
 
 emconfig.json:
-	emconfigutil --platform xilinx_u250_xdma_201830_2 --nd 1
+	emconfigutil --platform xilinx_u250_gen3x16_xdma_3_1_202020_1 --nd 1
 
 $(COMPUTE_SQRT_XO): $(KERNEL_SRC)
 	$(HWC) -c -t $(HW_TARGET) --kernel compute_sqrt --temp_dir $(TMP_DIR) \
